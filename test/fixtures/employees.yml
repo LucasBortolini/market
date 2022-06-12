@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  pis: MyString
+  admission_date: 2022-06-12
+  phone: MyString
+  sector: MyString
+  payment: 1.5
+  branch: one
+
+two:
+  name: MyString
+  pis: MyString
+  admission_date: 2022-06-12
+  phone: MyString
+  sector: MyString
+  payment: 1.5
+  branch: two
