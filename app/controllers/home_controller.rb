@@ -4,8 +4,14 @@ class HomeController < ApplicationController
   end
 
   def report
-    orders = Orders.where("created_at > ?", 30.days.ago)
+    orders = Order.where("created_at > ?", 30.days.ago)
+    columns = Order.column_names
 
-    send_data(orders.to_csv, filename: "orders.csv")
+    csv = columns.to_sentence(:last_word_connector => ", ")
+    orders.each do |order|
+      csv << "\n" + order.values_at(columns).to_sentence(:last_word_connector => ", ")
+    end
+
+    send_data(csv.gsub("\"", ""), filename: "orders.csv")
   end
 end
