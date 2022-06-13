@@ -12,35 +12,42 @@
   </head>
 
   <body>
-    <nav class="flex items-center justify-between flex-wrap bg-gray-800 p-6 fixed w-full z-10 top-0">
-      <div class="flex items-center flex-shrink-0 text-white mr-6">
-        <a class="text-white no-underline hover:text-white hover:no-underline" href="<%= root_path %>">
-          <span class="text-2xl pl-2"><i class="em em-grinning"></i> Market2U</span>
+    <nav class="flex items-center h-20 px-6 justify-between shadow-sm bg-white relative z-50">
+      <a class="flex-1 no-underline block h-8"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAABuVBMVEX///////38/////v////z6AAD//f/6///7AAD///v3AAD0AADxAAD2///8/v/tAADjAAAASKoASa/lAADdAADSAADYAADN4/UAPpfy//8ASan/+fgASZrr+/0AOpfMAAAAO52vxdTi9v8AOpwAQqMANJQASbEANIkAP48APpT/7+wARK0AN5IAR5OGqMn93d7O5d3p+fK9IRr/6OPa8PIAMJBdg7fU5/BUe7fq8/afucrjs7TfqaX2y8fZSEbdgHrVjI/voKTLTk3VXl7zu7jNfnhmh6lZeZzYHxjL0cnIIhm2ExXs5eEXTZGzOTOyRz2Sk4DVtq7DBgy2vrYrWpZBa6Fqjr+Tr8cAH3jyk5SmUkqFemjXQz9TcqGpw94bUZWYrbjJj4ihcWaWWUuOq6CuJR2qkIY1abhGcbVykqybZV9+qNDWZmXRcG+dQzeLn5ScfnW+xrWtsKeqxbzjPzvrfoC61vG0YFmpZ2KzoZnKNDKlrqnYLzLEmpL4paOMblvNv7biWlm1kYi3eXJ7f2+RYFOoJBrIX16SOiylNy3i0caitLuVt92qk5EANW8wWo5xjJtKYntjgZhjSe6mAAAWKElEQVR4nO1bi18TV9o+c+aWSTK5X0jSECYEkICBADIGBbUitxVQBLKiBCriivdPq91at7bdtvu1212rf/H3vGfCVdsPa2vb3+88xiSTZGbOe97b877nwJiEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISEhISExGGh/N4D+M3xrhIquECIMXXncooAU7iiaMp+iJ8ravO1eYaqcmbRCUoI//lhbmnhpwKW9drwVca5QTezNIY75fpOnDzRR4c0NPq5pajqwZN+HqqqWaqxK8O+sRwYGaCETGW/iJrCTE4nq0w91HwrYpA4weRm6LVTFB4yLM1QxTSPjqUSiUThVBlDsSAkV+l2bwlVtSzVk4Xv1eGuDHuVyUiH9O2O9BBaxQ+YmFp+qNubmCWaLQ1DZgemFZdS+06fHtRYyNLOJIO6z6f7Ix+WIZpqMO8EOuMt9IgTODe5GPRr49uRDEJYGm8OYd/PIBmOuYl3pnm4CSav4JzmhivGgaHS9J1NJD7MhULKeNJP0P3+xDnFIkMRRvS6rf08uBCNa1pz6Pv9zpOaJjakqM1vDwzJCJnFxsTkRCODqbIOdU+FhUKqYYQMbmkHvUphfVP+wMA0M3JjQV1PDMyEfb7AX84rcE+o/S2lowvS1PCiQPo1iI/ztm2aJum5OSXqPnWbZmO2tVRq6xjOCEM6xD2hCEOzciqm7TU3tNQTKT08N83UvoLfF56/cHHG7wssXBJ+w00lNz6aezsJFW6Zla4jR7rxaDkAfAYcnZ2dXXyxNLy8XG800vkM369Ks94RzXbfXF76a/2w3qHBOK2TY6dzFLMPDohdjuuRlRrnkNC/cKU/d9WvBwY+Y+XxPlzeOpssnHmrFEIn2bM92Ww0m83GOqOE2DbEEb4Qb0vQU1trb9eR1bSINxTVKEQ1OmLRNcfmZnrdDJF+msGW7drfznQo4q1KsX+0ECx8BE/kfHu+xJdQ652gnrpmGTx3qrCwcd0cLPj18Pyj3IeFhXFV6Uvq/s3znK59aClx2bXOLAkQzQqBorvY/qBUEvK1tXe0fLC05SoaJ1kozHD3aDR6JM0MymSqQpFZ01QRf3cl86LvrpD05emIL7FSZSLPcEYBOqSa5ADlqwG9cIMhgeUu3rg+xD6P+/TU8/7RlB68d56djOjB+UeM/P0wuXcby6XO2N+OH7/5N8IHB4CPFo8fP761VanUG+mhok0OCa+EhNxS7OWWbFtFjBCxw+IYvJGzRIjcF3WV3SFpxA3Us0Ff8laNcQ15Dlme1Mg5sjyDlnzJcxfLCLTMtlkf3DC4eYF/HvYFV6bZqbAvstIPPhA6tIR0Zaejs+e2bWcE8nhsI0P/BGyOAdADaQPpDHKQpVpKsSubbc1QEDVEeKRgIAKqYWjazh2YICt4mKYIGEzLXdV9CzdsMCLFMBSt+RPFKp+4E9f1YDx5FzezDCN3J6z7k88faXch2jf9bCzgS16rqrj0oYIaXVWDKuwj0exihnmZ/fUp2M7+ajN5QU7DYGSLFqu0dfYsE91RYFcauSFXcn3j44OaaaqhHQkV4fHEetQQBW+lb8qnD1w3DfEpt3K50TOnx8u58lgi6EeW90fu9TMT3OZMRPfF793PlD8O+AsPquUp3T9zIcMGz4weOm/AazjbKnV2pb0Qqe2hb15a1Dyio5H+PO8CjeGmBh+y7MVotPWJGTLIBnODfX05lhsfS0USqdNlIfLuRIEZ4F6G4THE0ZQvMPc/JDknDjz6YSoejxROjhYCSPCBqYF7V6qU/5AbfYGBK/1sMKH7B/5jjib8gc3PePlqYuH7w0pIwY+le2OlCu7kmfZ2EFQJ2zTO8xVV0FNNEREQFCbdnc125y01N3qib/DUs9TU3b5TqQAxrdQ5y9gzzZxDuBxc0DDEtH4e8QWfnTp1clDVIPnoTBCn+P3Jz8/NxP3+1LWHj6qmist+iXSfvPXIVDEj+txDdjJBcZWNJ/XUg0P6oUqmpWbWstlF0xJcf09OU4WsXGuSsaaNQkzICJVwhddL2dJNW7NOJyNTH0dAsCJTEb8PEvr8C6MsxFWRG8C0TEzC3TujIOki0CuPwz49EA5Gno5qhlK+GtbjM4WwP7h5frygBxYeirty9UxC94Vho4p2EjNy7xF7TLmyn10O+xfum4dUoZDJxEg70l5Y3ybhe3+0owlGVJsip2qR2ZqrpWhpi7PBZ36fX0im4xEIBnRdT34EukMWTVe0TJCxYHimD9GD/Dg3RooOgLTMoW4YT+iBuRsX4WMLX4ynfILRMKuc6yvgYgNXhkzFOIdAs9GvUaB5ni8/80OTh9ShuL1lut3RnuONJ+7QfqSfPHnSAH6oVPD8ZGgob5Izkqo1iubFo+SGjPUlIJI/GBRCJuc/mYGIyb8Lp4b+c+NnBhXEDJ8vfrdMQZcR9/QHFzbhdclP7dzdoC9yq9+a8uszn54J+8Ir5+ELJ5+evQrbLdx6RHkWSRIxFPHJN4PMkfAhQx5WQg1B2bLs4VJnqbW7q6vrqIcPugi9QGtra3tbCc/gM0cXh39I502iIipliEZrLPbBkMLG42DHU3NzMCpffOWzKklTuMZDann08uXxU4Xk0zKDovyBxLM74znocDQJM772xeWwnnhgU45PfNKHkwKbDx8HkBUwj4OFQBB1BcVRBKdcCvq9wci2Z/4xPhUIz10wDxlpMMcm2amDsWZbens7CO3tHR1gaK2ltpKgOgSP5JTaev86ATfEpCBXs4lSLLaUUYzTFBA2Hp4fC+v6wo2qAq+BOiAIwmokEkYI+RRqQyxBqkueypkMgSY8f0m7EwDzzJQxMYGpqQgqiY1psNDkFahnPEIGH6Q4CjvPJf2BhY/GU36fHp+KBAILz6fNQ5JgL9kaan4RIWO7pHAcpzEyMlKv128PDx+/CawdBbs5evPm8eHKSNFEtsV5llZci2ZLE4zlQFAw/TYoJXLAJaaBedBr37MwlAoP9RcusBy0Q/WsnjzJlFNhPfz08VgEOrqOFCBiEwY/d2GQ6PZDxKU7wuQjn3zRN/7RiVwOdDQ8FQ+G4wFMU6Cwcd0+fLHfZL2VtmiLK473fMf57isxGu4dEIOhVJDuyEbbGqCSyFphhLjcx0F/eGWIKWNBhMB+inz+RDJMKe2hiWnQp6ZgZvF7tdyXAZ8/HIYZztyosjNxPRCBsgv3vh46E/cFv52G9lOQxKcHp5KJSLxwUjsbJx6Qmp8vJFKFzWvXyVUOL6EQsXgEKRG0cm9FKpoZokZWvR6UIopzSomCdVdKUUwLalYoIXGtasJb9NStqgXmoac2MuWrfl/q7189pTLvEke8DX/y6dUAHLW/PENBFynQl/oHV6Hx+Nw/V1YeXK8SCw1sfm/0UZ" class="h-full" /></a>
+      <div class="flex-none hidden md:flex md:justify-center md:h-full">
+        <a href="<%= root_path %>" class="block h-full flex items-center mx-4 px-2 border-b-2 border-transparent transition-colors duration-300 ease-in-out hover:text-blue-400">
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18 mr-3" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path>
+          </svg> Home
+        </a>
+        <a href="<%= admin_path %>" class="block h-full flex items-center mx-4 px-2 border-b-2 border-transparent transition-colors duration-300 ease-in-out hover:text-blue-400">
+          <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cog" class="svg-inline--fa fa-cog fa-w-16 mr-3" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <path fill="currentColor" d="M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47 0-70.2l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10-5.1-14.8-2.3L380.8 110c-17.9-15.4-38.5-27.3-60.8-35.1V25.8c0-5.6-3.9-10.5-9.4-11.7-36.7-8.2-74.3-7.8-109.2 0-5.5 1.2-9.4 6.1-9.4 11.7V75c-22.2 7.9-42.8 19.8-60.8 35.1L88.7 85.5c-4.9-2.8-11-1.9-14.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4.6 11.2 5.5 14L67.3 221c-4.3 23.2-4.3 47 0 70.2l-42.6 24.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10 5.1 14.8 2.3l42.6-24.6c17.9 15.4 38.5 27.3 60.8 35.1v49.2c0 5.6 3.9 10.5 9.4 11.7 36.7 8.2 74.3 7.8 109.2 0 5.5-1.2 9.4-6.1 9.4-11.7v-49.2c22.2-7.9 42.8-19.8 60.8-35.1l42.6 24.6c4.9 2.8 11 1.9 14.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.5-.7-11.3-5.6-14.1zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z"></path>
+          </svg> Admin
         </a>
       </div>
-
-      <div class="block lg:hidden">
-        <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-white hover:border-white">
-          <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
-        </button>
+      <div class="flex-1 items-center justify-end hidden md:flex">
+        <div class="cursor-pointer my-2 relative rounded-full w-12 h-12"> <img src="https://gustui.s3.amazonaws.com/avatar.png" class="absolute left-0 top-0 w-full h-full rounded-full object-cover" /> </div>
       </div>
-
-      <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
-        <ul class="list-reset lg:flex justify-end flex-1 items-center">
-          <li class="mr-3">
-            <a class="inline-block py-2 px-4 text-white no-underline" href="#">Active</a>
-          </li>
-          <li class="mr-3">
-            <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">link</a>
-          </li>
-          <li class="mr-3">
-            <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">link</a>
-          </li>
-          <li class="mr-3">
-            <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">link</a>
-          </li>
-        </ul>
+      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11 text-black text-3xl cursor-pointer md:hidden" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512">
+        <path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path>
+      </svg>
+      <!-- Mobile Menu Hidden Section Begin - Switch to Flex -->
+      <div class="hidden bg-white absolute top-full left-0 flex-col w-full py-8 shadow-sm lg:hidden">
+        <div class="flex-1 flex flex-col items-center text-xl">
+          <a href="<%= root_path %>" class="no-underline px-2 my-2 font-medium hover:text-blue-400">
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="home" class="svg-inline--fa fa-home fa-w-18 mr-3" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+              <path fill="currentColor" d="M280.37 148.26L96 300.11V464a16 16 0 0 0 16 16l112.06-.29a16 16 0 0 0 15.92-16V368a16 16 0 0 1 16-16h64a16 16 0 0 1 16 16v95.64a16 16 0 0 0 16 16.05L464 480a16 16 0 0 0 16-16V300L295.67 148.26a12.19 12.19 0 0 0-15.3 0zM571.6 251.47L488 182.56V44.05a12 12 0 0 0-12-12h-56a12 12 0 0 0-12 12v72.61L318.47 43a48 48 0 0 0-61 0L4.34 251.47a12 12 0 0 0-1.6 16.9l25.5 31A12 12 0 0 0 45.15 301l235.22-193.74a12.19 12.19 0 0 1 15.3 0L530.9 301a12 12 0 0 0 16.9-1.6l25.5-31a12 12 0 0 0-1.7-16.93z"></path>
+            </svg> Home
+          </a>
+          <a href="<%= admin_path %>" class="no-underline px-2 my-2 font-medium hover:text-blue-400">
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="cog" class="svg-inline--fa fa-cog fa-w-16 mr-3" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path fill="currentColor" d="M487.4 315.7l-42.6-24.6c4.3-23.2 4.3-47 0-70.2l42.6-24.6c4.9-2.8 7.1-8.6 5.5-14-11.1-35.6-30-67.8-54.7-94.6-3.8-4.1-10-5.1-14.8-2.3L380.8 110c-17.9-15.4-38.5-27.3-60.8-35.1V25.8c0-5.6-3.9-10.5-9.4-11.7-36.7-8.2-74.3-7.8-109.2 0-5.5 1.2-9.4 6.1-9.4 11.7V75c-22.2 7.9-42.8 19.8-60.8 35.1L88.7 85.5c-4.9-2.8-11-1.9-14.8 2.3-24.7 26.7-43.6 58.9-54.7 94.6-1.7 5.4.6 11.2 5.5 14L67.3 221c-4.3 23.2-4.3 47 0 70.2l-42.6 24.6c-4.9 2.8-7.1 8.6-5.5 14 11.1 35.6 30 67.8 54.7 94.6 3.8 4.1 10 5.1 14.8 2.3l42.6-24.6c17.9 15.4 38.5 27.3 60.8 35.1v49.2c0 5.6 3.9 10.5 9.4 11.7 36.7 8.2 74.3 7.8 109.2 0 5.5-1.2 9.4-6.1 9.4-11.7v-49.2c22.2-7.9 42.8-19.8 60.8-35.1l42.6 24.6c4.9 2.8 11 1.9 14.8-2.3 24.7-26.7 43.6-58.9 54.7-94.6 1.5-5.5-.7-11.3-5.6-14.1zM256 336c-44.1 0-80-35.9-80-80s35.9-80 80-80 80 35.9 80 80-35.9 80-80 80z"></path>
+            </svg> Admin
+          </a>
+        </div>
       </div>
+      <!-- Mobile Menu Hidden Section End -->
     </nav>
 
     <!--Container-->
