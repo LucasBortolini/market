@@ -35,8 +35,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_12_205702) do
     t.string "pis"
     t.date "admission_date"
     t.string "phone"
-    t.string "sector"
-    t.float "payment"
+    t.string "job"
+    t.float "salary"
     t.integer "branch_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -58,27 +58,27 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_12_205702) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.float "price"
-    t.integer "quantity"
     t.string "brand"
     t.string "sku"
-    t.integer "branch_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["branch_id"], name: "index_products_on_branch_id"
   end
 
   create_table "storages", force: :cascade do |t|
     t.integer "branch_id", null: false
-    t.float "quantity"
+    t.integer "product_id", null: false
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["branch_id", "product_id"], name: "index_storages_on_branch_id_and_product_id", unique: true
     t.index ["branch_id"], name: "index_storages_on_branch_id"
+    t.index ["product_id"], name: "index_storages_on_product_id"
   end
 
   add_foreign_key "employees", "branches"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "employees"
   add_foreign_key "orders", "products"
-  add_foreign_key "products", "branches"
   add_foreign_key "storages", "branches"
+  add_foreign_key "storages", "products"
 end
