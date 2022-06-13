@@ -5,3 +5,24 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+include FactoryBot::Syntax::Methods
+
+branches = FactoryBot.create_list(:branch, 2)
+
+puts "Created 2 branches"
+
+products = FactoryBot.create_list(:product, 9)
+puts "Created 10 products"
+
+branches.each do |branch|
+	FactoryBot.create_list(:employee, 3, branch: branch)
+  puts "Created 3 employees for branch ##{branch.id}"
+
+  products.each do |product|
+    Storage.create(branch: branch, product: product, quantity: rand(10))
+    puts "Added storage for product ##{product.id} at branch ##{branch.id}"
+  end
+end
+
+customers = FactoryBot.create_list(:customer, 4)
