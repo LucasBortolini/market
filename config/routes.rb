@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'admin', to: 'admin#index'
+  get '/admin', to: 'admin#index'
+  get '/report', to: 'home#report'
   get '/products/:id', to: 'products#view', as: :product_view
 
   scope :admin do
