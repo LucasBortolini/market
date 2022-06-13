@@ -47,9 +47,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_12_205702) do
     t.integer "customer_id", null: false
     t.integer "product_id", null: false
     t.integer "employee_id", null: false
+    t.integer "branch_id", null: false
     t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["branch_id"], name: "index_orders_on_branch_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
     t.index ["employee_id"], name: "index_orders_on_employee_id"
     t.index ["product_id"], name: "index_orders_on_product_id"
@@ -76,6 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_12_205702) do
   end
 
   add_foreign_key "employees", "branches"
+  add_foreign_key "orders", "branches"
   add_foreign_key "orders", "customers"
   add_foreign_key "orders", "employees"
   add_foreign_key "orders", "products"

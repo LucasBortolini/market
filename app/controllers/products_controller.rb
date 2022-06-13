@@ -70,9 +70,15 @@ class ProductsController < ApplicationController
     branch = Branch.all.sample
     storage = Storage.find_by({ product_id: @product.id, branch_id: branch.id })
 
-    puts storage.inspect
     if (storage.quantity > 1)
-      storage.update!({ quantity: storage.quantity - 1 })
+      Order.create!({
+        branch: branch,
+        customer: customer,
+        employee: employee,
+        price: @product.price,
+        product: @product
+      })
+
       redirect_to root_path, notice: "Produto comprado pelo cliente #{customer.name},
           vendido pelo funcionário #{employee.name}
           na filial #{branch.name}"

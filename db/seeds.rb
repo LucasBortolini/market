@@ -34,6 +34,7 @@ puts "Created 4 customers"
   Order.create!({
     customer_id: customers.pluck(:id).sample,
     product_id: product.id,
+    branch: branches.sample,
     employee_id: Employee.all.pluck(:id).sample,
     price: product.price
   })
