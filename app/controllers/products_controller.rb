@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   layout "admin"
-  before_action :set_product, only: %i[ show edit update destroy view ]
+  before_action :set_product, only: %i[ show edit update destroy view buy ]
 
   # GET /products or /products.json
   def index
@@ -61,6 +61,24 @@ class ProductsController < ApplicationController
   # GET /products/1 or /products/1.json
   def view
     render layout: "application"
+  end
+
+  # GET /products/1/buy
+  def buy
+    customer = Customer.all.sample
+    employee = Employee.all.sample
+    branch = Branch.all.sample
+    storage = Storage.find_by({ product_id: @product.id, branch_id: branch.id })
+
+    puts storage.inspect
+    if (storage.quantity > 1)
+      storage.update!({ quantity: storage.quantity - 1 })
+      redirect_to root_path, notice: "Produto comprado pelo cliente #{customer.name},
+          vendido pelo funcionário #{employee.name}
+          na filial #{branch.name}"
+    else
+      redirect_to product_view_url(@product), notice: "OOPS! A filial #{branch.name} está sem estoque!"
+    end
   end
 
   private
