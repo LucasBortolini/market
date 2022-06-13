@@ -1,10 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @branch %>
-
-<div>
-  <%= link_to "Edit this branch", edit_branch_path(@branch) %> |
-  <%= link_to "Back to branches", branches_path %>
-
-  <%= button_to "Destroy this branch", @branch, method: :delete %>
+<div class="w-full px-10">
+  <h3 class="text-2xl font-medium">Branch Details</h3>
+  <div class="mt-4">
+    <div class="flex flex-col sm:flex-row justify-between items-center sm:items-start py-3 border-t border-gray-300 last:border-none">
+      <span class="w-full sm:w-1/3 font-medium text-center sm:text-left">Name</span>
+      <span class="flex-1 text-center sm:text-left"><%= @branch.name %></span>
+    </div>
+    <div class="flex flex-col sm:flex-row justify-between items-center sm:items-start py-3 border-t border-gray-300 last:border-none">
+      <span class="w-full sm:w-1/3 font-medium text-center sm:text-left">Cnpj</span>
+      <span class="flex-1 text-center sm:text-left"><%= @branch.cnpj %></span>
+    </div>
+  </div>
+</div>
+<div class="flex justify-center">
+  <%= link_to "Edit this branch", edit_branch_path(@branch), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-3 rounded" %>
+  <%= link_to "Back to branches", branches_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-3 rounded" %>
+  <%= button_to "Destroy this branch", @branch, method: :delete, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mx-3 rounded" %>
 </div>
