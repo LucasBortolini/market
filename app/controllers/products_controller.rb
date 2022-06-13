@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   layout "admin"
-  before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :set_product, only: %i[ show edit update destroy view ]
 
   # GET /products or /products.json
   def index
@@ -56,6 +56,11 @@ class ProductsController < ApplicationController
       format.html { redirect_to products_url, notice: "Product was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  # GET /products/1 or /products/1.json
+  def view
+    render layout: "application"
   end
 
   private
