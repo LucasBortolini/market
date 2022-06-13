@@ -1,14 +1,67 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Products</h1>
-
-<div id="products">
-  <% @products.each do |product| %>
-    <%= render product %>
-    <p>
-      <%= link_to "Show this product", product %>
-    </p>
-  <% end %>
+<div class="w-full max-w-screen-md mx-auto">
+  <table id="employees" class="w-full table-auto rounded-sm">
+    <thead>
+      <tr>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          Product
+        </th>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          Brand
+        </th>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          SKU
+        </th>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          Price
+        </th>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          Qty
+        </th>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          <%= link_to "New", new_product_path, class: "inline-block rounded-sm font-medium border border-solid cursor-pointer text-center text-xs py-1 px-2 text-blue-800 bg-white border-white hover:bg-blue-200 hover:border-blue-200" %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @products.each do |product| %>
+        <tr class="border-gray-300">
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= product.name %>
+          </td>
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= product.brand %>
+          </td>
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= product.sku %>
+          </td>
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= number_to_currency(product.price) %>
+          </td>
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= product.total_storage %>
+          </td>
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= link_to "Show", product, class: "inline-block rounded-sm font-medium border border-solid cursor-pointer text-center text-xs py-1 px-2 text-white bg-blue-800 border-blue-800 hover:bg-blue-600 hover:border-blue-600"  %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
-<%= link_to "New product", new_product_path %>
+<%= link_to "New employee", new_employee_path %>

@@ -1,14 +1,42 @@
-<p style="color: green"><%= notice %></p>
+<div id="branches">
+  <p style="color: green"><%= notice %></p>
 
 <h1>Branches</h1>
-
-<div id="branches">
-  <% @branches.each do |branch| %>
-    <%= render branch %>
-    <p>
-      <%= link_to "Show this branch", branch %>
-    </p>
-  <% end %>
+<div class="w-full max-w-screen-md mx-auto">
+  <table id="employees" class="w-full table-auto rounded-sm">
+    <thead>
+      <tr>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          Name
+        </th>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          CNPJ
+        </th>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          <%= link_to "New", new_branch_path, class: "inline-block rounded-sm font-medium border border-solid cursor-pointer text-center text-xs py-1 px-2 text-blue-800 bg-white border-white hover:bg-blue-200 hover:border-blue-200" %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @branches.each do |branch| %>
+        <tr class="border-gray-300">
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= branch.name %>
+          </td>
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= branch.cnpj %>
+          </td>
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= link_to "Show", branch, class: "inline-block rounded-sm font-medium border border-solid cursor-pointer text-center text-xs py-1 px-2 text-white bg-blue-800 border-blue-800 hover:bg-blue-600 hover:border-blue-600" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-
-<%= link_to "New branch", new_branch_path %>

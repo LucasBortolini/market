@@ -1,14 +1,58 @@
-<p style="color: green"><%= notice %></p>
+<div id="customeres">
+  <p style="color: green"><%= notice %></p>
 
 <h1>Customers</h1>
-
-<div id="customers">
-  <% @customers.each do |customer| %>
-    <%= render customer %>
-    <p>
-      <%= link_to "Show this customer", customer %>
-    </p>
-  <% end %>
+<div class="w-full max-w-screen-md mx-auto">
+  <table id="employees" class="w-full table-auto rounded-sm">
+    <thead>
+      <tr>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          Name
+        </th>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          CPF
+        </th>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          Email
+        </th>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          Phone
+        </th>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          <%= link_to "New", new_customer_path, class: "inline-block rounded-sm font-medium border border-solid cursor-pointer text-center text-xs py-1 px-2 text-blue-800 bg-white border-white hover:bg-blue-200 hover:border-blue-200" %>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @customers.each do |customer| %>
+        <tr class="border-gray-300">
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= customer.name %>
+          </td>
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= customer.cpf %>
+          </td>
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= customer.email %>
+          </td>
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= number_to_phone(customer.phone, pattern: /(\d{2})(\d{4,5})(\d{4})$/) %>
+          </td>
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= link_to "Show", customer, class: "inline-block rounded-sm font-medium border border-solid cursor-pointer text-center text-xs py-1 px-2 text-white bg-blue-800 border-blue-800 hover:bg-blue-600 hover:border-blue-600" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-
-<%= link_to "New customer", new_customer_path %>

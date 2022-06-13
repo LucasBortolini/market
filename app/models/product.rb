@@ -1,3 +1,7 @@
 class Product < ApplicationRecord
-  belongs_to :branch
+  has_many :storages
+
+  def total_storage
+    storages.sum {|s| s[:quantity] }
+  end
 end

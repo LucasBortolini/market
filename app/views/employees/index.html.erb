@@ -1,14 +1,76 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Employees</h1>
-
-<div id="employees">
-  <% @employees.each do |employee| %>
-    <%= render employee %>
-    <p>
-      <%= link_to "Show this employee", employee %>
-    </p>
-  <% end %>
+<div class="w-full max-w-screen-md mx-auto">
+  <table id="employees" class="w-full table-auto rounded-sm">
+    <thead>
+      <tr>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          Name
+        </th>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          PIS
+        </th>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          Admission Date
+        </th>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          Phone
+        </th>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          Sector
+        </th>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          Payment
+        </th>
+        <th
+          class="px-4 py-4 text-left bg-blue-900 text-white text-sm font-medium"
+        >
+          <%= link_to "New", new_employee_path, class: "inline-block rounded-sm font-medium border border-solid cursor-pointer text-center text-xs py-1 px-2 text-blue-800 bg-white border-white hover:bg-blue-200 hover:border-blue-200" %>
+            
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @employees.each do |employee| %>
+        <tr class="border-gray-300">
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= employee.name %>
+          </td>
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= employee.pis %>
+          </td>
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= employee.admission_date %>
+          </td>
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= employee.phone %>
+          </td>
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= employee.job %>
+          </td>
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= number_to_currency(employee.salary) %>
+          </td>
+          <td class="px-4 py-8 border-t border-b border-gray-300 text-sm">
+            <%= link_to "Show", employee, class: "inline-block rounded-sm font-medium border border-solid cursor-pointer text-center text-xs py-1 px-2 text-white bg-blue-800 border-blue-800 hover:bg-blue-600 hover:border-blue-600" %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
 <%= link_to "New employee", new_employee_path %>
