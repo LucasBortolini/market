@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   get 'home/index'
-  resources :branches
-  resources :products
-  resources :employees
-  resources :customers
-  resources :storages
-  resources :orders
+
+  scope :admin do
+    resources :branches
+    resources :products
+    resources :employees
+    resources :customers
+    resources :storages
+    resources :orders
+  end
 
   root 'home#index'
 end
