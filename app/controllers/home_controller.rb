@@ -12,6 +12,6 @@ class HomeController < ApplicationController
       csv << "\n" + order.values_at(columns).to_sentence(:last_word_connector => ", ")
     end
 
-    send_data(csv.gsub("\"", ""), filename: "orders.csv")
+    send_data(csv, filename: "orders.csv")
   end
 end
