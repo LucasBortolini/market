@@ -1,4 +1,5 @@
 class StoragesController < ApplicationController
+  layout "admin"
   before_action :set_storage, only: %i[ show edit update destroy ]
 
   # GET /storages or /storages.json
