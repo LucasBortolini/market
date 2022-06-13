@@ -26,3 +26,18 @@ branches.each do |branch|
 end
 
 customers = FactoryBot.create_list(:customer, 4)
+puts "Created 4 customers"
+
+5.times do
+  product = products.sample
+
+  Order.create!({
+    customer_id: customers.pluck(:id).sample,
+    product_id: product.id,
+    employee_id: Employee.all.pluck(:id).sample,
+    price: product.price
+  })
+end
+
+puts "Created 5 orders"
+
